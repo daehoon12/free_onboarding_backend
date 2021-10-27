@@ -125,11 +125,11 @@ curl -X POST -H "content-type: application/json" http://127.0.0.1:5000/posts -d 
 
 #### 1. 200 OK
 {  
-　　"id": "Daehoon",
-　　"post_no": 1,
-　　"data": "study",
-　　"created_date": "21-10-27 14:01:55",
-　　"modified_date": "21-10-27 14:01:55"
+　　"id": "Daehoon",  
+　　"post_no": 1,  
+　　"data": "study",  
+　　"created_date": "21-10-27 14:01:55",  
+　　"modified_date": "21-10-27 14:01:55"  
 }  
 
 #### 2. 401 UNAUTHORIZED
