@@ -87,7 +87,8 @@ url -X POST -H "Content-Type: application/json" http://127.0.0.1:5000/auth/login
 - 회원가입이 안되어 있을 때 발생  
 
 #### 3. 500 INTERNAL SERVER ERROR
-{
+
+{  
 　　"message": "Auth Failed"  
 }  
 
