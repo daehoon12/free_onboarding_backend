@@ -105,7 +105,7 @@ curl -X POST -H "Content-Type: application/json" http://127.0.0.1:5000/auth/logi
 - id와 data의 정보가 담긴 json data를 담아서 Endpoint에 보낸다.  
 <br/>  
 
-Endpoint : [POST] http://127.0.0.1:5000/posts/  
+Endpoint : [POST] http://127.0.0.1:5000/posts  
 curl -X POST -H "content-type: application/json" http://127.0.0.1:5000/posts -d '{"id" : "Daehoon", "data": "study"}'  
 
 ### Request
@@ -118,28 +118,24 @@ curl -X POST -H "content-type: application/json" http://127.0.0.1:5000/posts -d 
 #### 2. Body  
 {  
 　　"id" : "Daehoon",  
-　　"password : "pass"  
+　　"data": "study"  
 }  
 
 ### Response
 
 #### 1. 200 OK
 {  
-　　"Authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiRGFlaG9vbiJ9.kVfdmcIH0xlLRUvL2DF5Q93DTfMjNqwbg4x7ppd-Mvc"  
+　　"id": "Daehoon",
+　　"post_no": 1,
+　　"data": "study",
+　　"created_date": "21-10-27 14:01:55",
+　　"modified_date": "21-10-27 14:01:55"
 }  
 
-#### 2. 404 NOT FOUND
+#### 2. 401 UNAUTHORIZED
 {  
-　　"message": "User Not Found"  
+　　"message" : "A login is required"  
 }   
 
-- 회원가입이 안되어 있을 때 발생  
-
-#### 3. 500 INTERNAL SERVER ERROR
-
-{  
-　　"message": "Auth Failed"  
-}  
-
-- 패스워드가 틀렸을 때 발생  
+- 로그인을 안하고 CREATE 요청을 할 때 발생  
 
