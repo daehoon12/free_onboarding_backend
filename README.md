@@ -279,4 +279,4 @@ curl -X POST -H "Content-Type: application/json" http://127.0.0.1:5000/auth/logi
 
 # Test  
 - 테스트는 Postman, curl 명령어, 파이썬 모듈인 unittest를 이용해 진행.  
-- 
+- 커맨드에 python -m unittest tests로 unittest 시작
