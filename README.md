@@ -25,3 +25,10 @@ curl 명령어 예시 : curl -X POST -H "Content-Type: application/json" http://
 }  
 
 ### Response
+{
+　　"Authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiRGFlaG9vbiJ9.kVfdmcIH0xlLRUvL2DF5Q93DTfMjNqwbg4x7ppd-Mvc"
+}, 200
+
+{
+　　"message": "Register Failed"
+}, 500 
