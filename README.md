@@ -18,8 +18,8 @@
 
 - 아이디와 패스워드의 정보가 담긴 Request Message를 Endpoint에 보낸다.  
 
-Endpoint : [POST] http://127.0.0.1:5000/auth/register  
-curl 명령어 예시 : curl -X POST -H "Content-Type: application/json" http://127.0.0.1:5000/auth/register -d '{ "id" : "Daehoon","password" : "pass"}'  
+- Endpoint : [POST] http://127.0.0.1:5000/auth/register  
+- curl 명령어 예시 : curl -X POST -H "Content-Type: application/json" http://127.0.0.1:5000/auth/register -d '{ "id" : "Daehoon","password" : "pass"}'  
 
 
 ### Request
