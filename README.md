@@ -20,8 +20,8 @@ curl 명령어 예시 : curl -X POST -H "Content-Type: application/json" http://
 
 ### Request
 {  
-    "id" : "Daehoon",  
-    "password : "pass"  
+　　"id" : "Daehoon",  
+　　"password : "pass"  
 }  
 
 ### Response
