@@ -288,3 +288,6 @@ curl -X DELETE -H "content-type: application/json" http://127.0.0.1:5000/posts/1
 - 게시자 아이디와 로그인한 아이디가 일치하지 않을 때 발생.    
 
 
+# Test  
+- 테스트는 Postman, curl 명령어, 파이썬 모듈인 unittest를 이용해 진행.  
+- 
