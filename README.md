@@ -95,7 +95,9 @@ curl -X POST -H "Content-Type: application/json" http://127.0.0.1:5000/auth/logi
 - 패스워드가 틀렸을 때 발생  
 
 
-## 3. CREATE
+# CRUD  
+
+## 1. CREATE
 
 ### 구현 방법  
 - Client에서 **POST** 방식으로 데이터 패킷에 **id와 data**를 보내면 서버는 **id, 데이터, 생성한 날짜를 database에 저장**한다.  
@@ -139,7 +141,7 @@ curl -X POST -H "content-type: application/json" http://127.0.0.1:5000/posts -d 
 
 - 로그인을 안하고 CREATE 요청을 할 때 발생  
 
-## 4. READ
+## 2. READ
 
 ### 구현 방법  
 - Client에서 **GET 방식으로 parameter에 limit와 offset**을 넣어서 보내면 서버는 그 값을 통해 db에 쿼리를 날려 데이터를 가져온다.  
@@ -199,7 +201,7 @@ curl -X GET -H "content-type: application/json" http://127.0.0.1:5000/posts?limi
  
 
 
-## 5. UPDATE
+## 3. UPDATE
 
 ### 구현 방법  
 - Client에서 **PUT** 방식으로 **데이터 패킷에 아이디, 수정할 데이터, 게시글 번호**를 보내면 서버는 **게시글 번호를 통해 db에서 게시자를 찾는다.** **게시자와 요청한 client의 아이디가 일치하면 게시글을 수정하고 일치하지 않으면 아이디가 일치하지 않는다는 Response를 클라이언트에 보낸다.**      
@@ -243,7 +245,7 @@ curl -X PUT -H "content-type: application/json" http://127.0.0.1:5000/posts/1 -d
 - 게시자 아이디와 로그인한 아이디가 일치하지 않을 때 발생.    
 
 
-## 6. DELETE  
+## 4. DELETE  
 
 ### 구현 방법  
 - Client에서 **DELETE** 방식으로 데이터 패킷에 **아이디, 게시글 번호**를 보내면 서버는 **게시글 번호를 통해 db에서 게시자를 찾는다.** **게시자와 요청한 client의 아이디가 일치하면 게시글을 삭제하고 일치하지 않으면 아이디가 일치하지 않는다는 Response를 클라이언트에 보낸다.**        
