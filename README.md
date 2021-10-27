@@ -9,7 +9,7 @@
 ## 1. 회원 가입
 
 ### 구현 방법  
-- Client에서 POST 방식으로 데이터 패킷에 id와 password를 보내면 password는 jwt 모듈을 이용해서 암호화하고 id들을 관리하는 딕셔너리에 암호화한 패스워드를 value로 두었다.
+- Client에서 POST 방식으로 데이터 패킷에 id와 password를 보내면 password는 jwt 모듈을 이용해서 암호화하고 회원을 관리하는 딕셔너리에 암호화한 패스워드를 value로 두었다.
 
 ### 실행 방법  
 
@@ -43,4 +43,52 @@ curl 명령어 예시 : curl -X POST -H "Content-Type: application/json" http://
 #### 2. 500 INTERNAL SERVER ERROR
 {  
 　　"message": "Register Failed"  
-} (500)  
+}   
+
+
+## 2. 로그인
+
+### 구현 방법  
+- Client에서 POST 방식으로 데이터 패킷에 id와 password를 보내면 서버는 회원들의 정보가 들어있는 딕셔너리의 값과 일치하는지 확인한다.
+
+### 실행 방법  
+
+- 아이디와 패스워드의 정보가 담긴 json data를 담아서 Endpoint에 보낸다.  
+<br/>  
+
+Endpoint : [POST] http://127.0.0.1:5000/auth/login  
+url -X POST -H "Content-Type: application/json" http://127.0.0.1:5000/auth/login -d '{ "name" : "Daehoon","password" : "pass"}'
+
+### Request
+
+#### 1. Header  
+{    
+　　"Content-Type: application/json"  
+}    
+
+#### 2. Body  
+{  
+　　"id" : "Daehoon",  
+　　"password : "pass"  
+}  
+
+### Response
+
+#### 1. 200 OK
+{  
+　　"Authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiRGFlaG9vbiJ9.kVfdmcIH0xlLRUvL2DF5Q93DTfMjNqwbg4x7ppd-Mvc"  
+}  
+
+#### 2. 404 NOT FOUND
+{  
+　　"message": "User Not Found"
+}   
+
+- 회원가입이 안되어 있을 때 발생  
+
+#### 3. 500 INTERNAL SERVER ERROR
+{
+　　"message": "Auth Failed"
+}
+
+- 패스워드가 틀렸을 때 발생  
