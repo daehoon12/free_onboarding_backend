@@ -17,7 +17,6 @@
 ### 실행 방법  
 
 - 아이디와 패스워드의 정보가 담긴 Request Message를 Endpoint에 보낸다.  
-<br/>  
 
 Endpoint : [POST] http://127.0.0.1:5000/auth/register  
 curl 명령어 예시 : curl -X POST -H "Content-Type: application/json" http://127.0.0.1:5000/auth/register -d '{ "id" : "Daehoon","password" : "pass"}'  
@@ -57,7 +56,6 @@ curl 명령어 예시 : curl -X POST -H "Content-Type: application/json" http://
 ### 실행 방법  
 
 - 아이디와 패스워드의 정보가 담긴 Request Message를 Endpoint에 보낸다.  
-<br/>  
 
 Endpoint : [POST] http://127.0.0.1:5000/auth/login  
 curl -X POST -H "Content-Type: application/json" http://127.0.0.1:5000/auth/login -d '{ "name" : "Daehoon","password" : "pass"}'
@@ -108,7 +106,6 @@ curl -X POST -H "Content-Type: application/json" http://127.0.0.1:5000/auth/logi
 
 ## 실행 방법  
 - id와 data의 정보가 담긴 Request Message를 Endpoint에 보낸다.  
-<br/>  
 
 Endpoint : [POST] http://127.0.0.1:5000/posts  
 curl -X POST -H "content-type: application/json" http://127.0.0.1:5000/posts -d '{"id" : "Daehoon", "data": "study"}'  
@@ -154,7 +151,6 @@ curl -X POST -H "content-type: application/json" http://127.0.0.1:5000/posts -d 
 
 ## 실행 방법  
 - limit와 offset을 파라미터로 담은 Request Message를 Endpoint에 보낸다.  
-<br/>  
 
 Endpoint : [GET] http://127.0.0.1:5000/posts  
 curl -X GET -H "content-type: application/json" http://127.0.0.1:5000/posts?limit=30&offset=0  
