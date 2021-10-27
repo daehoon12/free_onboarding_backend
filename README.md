@@ -14,7 +14,6 @@
 ### 실행 방법  
 
 - 아이디와 패스워드의 정보가 담긴 json data를 담아서 Endpoint에 보낸다.  
-
 <br/>  
 
 Endpoint : [POST] http://127.0.0.1:5000/auth/register  
