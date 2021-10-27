@@ -15,9 +15,7 @@
 - Client에서 **POST** 방식으로 데이터 패킷에 id와 password를 보내면 password는 jwt 모듈을 이용해서 암호화하고 **회원을 관리하는 딕셔너리에 암호화한 패스워드를 value**로 두었다.
 
 ### 실행 방법  
-
 - 아이디와 패스워드의 정보가 담긴 Request Message를 Endpoint에 보낸다.  
-
 - Endpoint : [POST] http://127.0.0.1:5000/auth/register  
 - curl 명령어 예시 : curl -X POST -H "Content-Type: application/json" http://127.0.0.1:5000/auth/register -d '{ "id" : "Daehoon","password" : "pass"}'  
 
@@ -54,9 +52,7 @@
 - Client에서 **POST** 방식으로 데이터 패킷에 id와 password를 보내면 서버는 **회원들의 정보가 들어있는 딕셔너리의 값과 일치하는지 확인**한다.
 
 ### 실행 방법  
-
 - 아이디와 패스워드의 정보가 담긴 Request Message를 Endpoint에 보낸다.  
-
 Endpoint : [POST] http://127.0.0.1:5000/auth/login  
 curl -X POST -H "Content-Type: application/json" http://127.0.0.1:5000/auth/login -d '{ "name" : "Daehoon","password" : "pass"}'
 
@@ -106,9 +102,8 @@ curl -X POST -H "Content-Type: application/json" http://127.0.0.1:5000/auth/logi
 
 ## 실행 방법  
 - id와 data의 정보가 담긴 Request Message를 Endpoint에 보낸다.  
-
-Endpoint : [POST] http://127.0.0.1:5000/posts  
-curl -X POST -H "content-type: application/json" http://127.0.0.1:5000/posts -d '{"id" : "Daehoon", "data": "study"}'  
+- Endpoint : [POST] http://127.0.0.1:5000/posts  
+- curl -X POST -H "content-type: application/json" http://127.0.0.1:5000/posts -d '{"id" : "Daehoon", "data": "study"}'  
 
 ### Request
 
@@ -151,9 +146,8 @@ curl -X POST -H "content-type: application/json" http://127.0.0.1:5000/posts -d 
 
 ## 실행 방법  
 - limit와 offset을 파라미터로 담은 Request Message를 Endpoint에 보낸다.  
-
-Endpoint : [GET] http://127.0.0.1:5000/posts  
-curl -X GET -H "content-type: application/json" http://127.0.0.1:5000/posts?limit=30&offset=0  
+- Endpoint : [GET] http://127.0.0.1:5000/posts  
+- curl -X GET -H "content-type: application/json" http://127.0.0.1:5000/posts?limit=30&offset=0  
 
 ### Request
 
@@ -208,9 +202,8 @@ curl -X GET -H "content-type: application/json" http://127.0.0.1:5000/posts?limi
 
 ## 실행 방법  
 - id, 수정한 data, 게시글 번호가 담긴 Request Message를 Endpoint에 보낸다.  
-
-Endpoint : [PUT] http://127.0.0.1:5000/posts/post_number (단 post_number는 unsigned int형 정수)  
-curl -X PUT -H "content-type: application/json" http://127.0.0.1:5000/posts/1 -d '{"id": "Daehoon","post_no": 1, "data": "studydsdadsadasdas"}'
+- Endpoint : [PUT] http://127.0.0.1:5000/posts/post_number (단 post_number는 unsigned int형 정수)  
+- curl -X PUT -H "content-type: application/json" http://127.0.0.1:5000/posts/1 -d '{"id": "Daehoon","post_no": 1, "data": "studydsdadsadasdas"}'
 ### Request
 
 #### 1. Header  
@@ -252,9 +245,8 @@ curl -X PUT -H "content-type: application/json" http://127.0.0.1:5000/posts/1 -d
 
 ## 실행 방법  
 - id, 게시글 번호가 담긴 Request Message를 Endpoint에 보낸다.  
-
-Endpoint : [DELETE] http://127.0.0.1:5000/posts/post_number (단 post_number는 unsigned int형 정수)  
-curl -X DELETE -H "content-type: application/json" http://127.0.0.1:5000/posts/1 -d '{"id": "Daehoon","post_no": 1}'  
+- Endpoint : [DELETE] http://127.0.0.1:5000/posts/post_number (단 post_number는 unsigned int형 정수)  
+- curl -X DELETE -H "content-type: application/json" http://127.0.0.1:5000/posts/1 -d '{"id": "Daehoon","post_no": 1}'  
 
 ### Request
 
