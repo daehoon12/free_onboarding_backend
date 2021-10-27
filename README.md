@@ -143,6 +143,7 @@ curl -X POST -H "content-type: application/json" http://127.0.0.1:5000/posts -d 
 
 ### 구현 방법  
 - Client에서 GET 방식으로 parameter에 limit와 offset을 넣어서 보내면 서버는 그 값을 통해 db에 쿼리를 날려 데이터를 가져온다.  
+- 1에서 offset을 더한 게시글 번호부터 limit까지 데이터를 가져온다.  
 - Pagination을 구현한 DB Query : 'SELECT * FROM post_info LIMIT limit OFFSET offset  
 
 
@@ -170,7 +171,7 @@ curl -X GET -H "content-type: application/json" http://127.0.0.1:5000/posts?limi
 
 #### 1. 200 OK
 {  
-　　"count": 30,
+　　"count": 30,  
 　　"data" : [  
   　　　　　　　　{  
 　　　　　　　　　　　　"id": "Daehoon",  
@@ -193,13 +194,53 @@ curl -X GET -H "content-type: application/json" http://127.0.0.1:5000/posts?limi
 　　　　　　　]  
 }  
 
-#### 2. 401 UNAUTHORIZED
+- count : data 안에 있는 element의 수  
+- data : 가져온 데이터 정보  
+ 
+
+
+## 5. UPDATE
+
+### 구현 방법  
+- Client에서 PUT 방식으로 데이터 패킷에 아이디, 수정할 데이터, 게시글 번호를 보내면 서버는 게시글 번호를 통해 db에서 게시자를 찾는다. 게시자와 요청한 client의 아이디가 일치하면 게시글을 수정하고 일치하지 않으면 아이디가 일치하지 않는다는 Response를 클라이언트에 보낸다      
+- 원래는 id를 flask 모듈에서 지원하는 session의 값과 비교하려했지만, curl 명령어를 사용했을 때는 session의 값이 사라지는 상황이 생겨 위와 같은 방법으로 진행하였다. 여담으로 POSTMAN으로 했을 때는 이상 없이 동작하였다.
+
+## 실행 방법  
+- id, 수정한 data, 게시글 번호가 담긴 Request Message를 Endpoint에 보낸다.  
+
+Endpoint : [PUT] http://127.0.0.1:5000/posts/post_number (단 post_number는 unsigned int형 정수)  
+curl -X PUT -H "content-type: application/json" http://127.0.0.1:5000/posts/1 -d '{"id": "Daehoon","post_no": 1, "data": "studydsdadsadasdas"}'
+### Request
+
+#### 1. Header  
+{    
+　　"Content-Type: application/json"  
+}    
+
+#### 2. Body  
 {  
-　　"message" : "A login is required"  
+　　"id": "Daehoon",  
+　　"post_no": 1,  
+　　"data": "studydsdadsadasdas"  
+}  
+
+### Response
+
+#### 1. 200 OK
+{  
+　　"id": "Daehoon",  
+　　"post_no": 1,  
+　　"data": "studydsdadsadasdas",  
+　　"created_date": "21-10-27 14:01:55",  
+　　"modified_date": "21-10-27 14:27:09"  
+}  
+
+#### 2. 400 BAD REQUEST
+{  
+　　"message" : "Your ID does not match the author's ID."  
 }   
 
-- 로그인을 안하고 CREATE 요청을 할 때 발생  
-
+- 게시자 아이디와 로그인한 아이디가 일치하지 않을 때 발생.    
 
 
 ## 5. UPDATE
