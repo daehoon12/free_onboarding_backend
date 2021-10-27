@@ -101,7 +101,7 @@ curl -X POST -H "Content-Type: application/json" http://127.0.0.1:5000/auth/logi
 - Client에서 **POST** 방식으로 데이터 패킷에 **id와 data**를 보내면 서버는 **id, 데이터, 생성한 날짜를 database에 저장**한다.  
 - 원래는 id를 flask 모듈에서 지원하는 session에 넣어서 인증할 생각이었다. POSTMAN으로 메시지를 주고 받을 때는 잘 되는데 curl 명령어를 사용했을 때는 session 인증이 안되는 상황이 발생했다. stackoverflow에 쳐보니 curl은 병렬적이며 이전에 상태를 기억하지 않고 보낸다고 써있어 쿠키를 사용하라고 써있었는데 하다가 잘 안되서 메모리 내의 유저 정보와 매칭시켜 인증하는 방식으로 구현했다.  
 
-## 실행 방법  
+### 실행 방법  
 - id와 data의 정보가 담긴 Request Message를 Endpoint에 보낸다.  
 - Endpoint : [POST] http://127.0.0.1:5000/posts  
 - curl -X POST -H "content-type: application/json" http://127.0.0.1:5000/posts -d '{"id" : "Daehoon", "data": "study"}'  
@@ -145,7 +145,7 @@ curl -X POST -H "Content-Type: application/json" http://127.0.0.1:5000/auth/logi
 - Pagination을 구현한 DB Query : **SELECT * FROM post_info LIMIT limit OFFSET offset**  
 
 
-## 실행 방법  
+### 실행 방법  
 - limit와 offset을 파라미터로 담은 Request Message를 Endpoint에 보낸다.  
 - Endpoint : [GET] http://127.0.0.1:5000/posts  
 - curl -X GET -H "content-type: application/json" http://127.0.0.1:5000/posts?limit=30&offset=0  
@@ -201,7 +201,7 @@ curl -X POST -H "Content-Type: application/json" http://127.0.0.1:5000/auth/logi
 - Client에서 **PUT** 방식으로 **데이터 패킷에 아이디, 수정할 데이터, 게시글 번호**를 보내면 서버는 **게시글 번호를 통해 db에서 게시자를 찾는다.** **게시자와 요청한 client의 아이디가 일치하면 게시글을 수정하고 일치하지 않으면 아이디가 일치하지 않는다는 Response를 클라이언트에 보낸다.**      
 - 원래는 id를 flask 모듈에서 지원하는 session의 값과 비교하려했지만, curl 명령어를 사용했을 때는 session의 값이 사라지는 상황이 생겨 위와 같은 방법으로 진행하였다. 여담으로 POSTMAN으로 했을 때는 session 값이 사라지지 않아 원래 생각한 방식으로 잘 돌아갔다.
 
-## 실행 방법  
+### 실행 방법  
 - id, 수정한 data, 게시글 번호가 담긴 Request Message를 Endpoint에 보낸다.  
 - Endpoint : [PUT] http://127.0.0.1:5000/posts/post_number (단 post_number는 unsigned int형 정수)  
 - curl -X PUT -H "content-type: application/json" http://127.0.0.1:5000/posts/1 -d '{"id": "Daehoon","post_no": 1, "data": "studydsdadsadasdas"}'
@@ -244,7 +244,7 @@ curl -X POST -H "Content-Type: application/json" http://127.0.0.1:5000/auth/logi
 - Client에서 **DELETE** 방식으로 데이터 패킷에 **아이디, 게시글 번호**를 보내면 서버는 **게시글 번호를 통해 db에서 게시자를 찾는다.** **게시자와 요청한 client의 아이디가 일치하면 게시글을 삭제하고 일치하지 않으면 아이디가 일치하지 않는다는 Response를 클라이언트에 보낸다.**        
 - 원래는 id를 비교하는 방법을 flask 모듈에서 지원하는 session의 값과 비교하려했지만, curl 명령어를 사용했을 때는 session의 값이 사라지는 상황이 생겨 위와 같은 방법으로 진행하였다. 여담으로 POSTMAN으로 했을 때는 session 값이 사라지지 않아 원래 생각한 방식으로 잘 돌아갔다.  
 
-## 실행 방법  
+### 실행 방법  
 - id, 게시글 번호가 담긴 Request Message를 Endpoint에 보낸다.  
 - Endpoint : [DELETE] http://127.0.0.1:5000/posts/post_number (단 post_number는 unsigned int형 정수)  
 - curl -X DELETE -H "content-type: application/json" http://127.0.0.1:5000/posts/1 -d '{"id": "Daehoon","post_no": 1}'  
