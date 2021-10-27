@@ -15,7 +15,7 @@ class AuthRegister(Resource):
     @Auth.doc(responses={200: 'Success'})
     @Auth.doc(responses={500: 'Register Failed'})
     def post(self):
-        name = request.json['name']
+        name = request.json['id']
         password = request.json['password']
         if name in users:
             return {
