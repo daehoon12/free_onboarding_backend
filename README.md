@@ -149,7 +149,7 @@ curl -X POST -H "content-type: application/json" http://127.0.0.1:5000/posts -d 
 ## 실행 방법  
 - id, 수정한 data, 게시글 번호가 담긴 Request Message를 Endpoint에 보낸다.  
 
-Endpoint : [POST] http://127.0.0.1:5000/posts/post_number (단 post_number는 unsigned int형 정수)
+Endpoint : [POST] http://127.0.0.1:5000/posts/post_number (단 post_number는 unsigned int형 정수)  
 curl -X POST -H "content-type: application/json" http://127.0.0.1:5000/posts/1 -d '{"id" : "Daehoon", "data": "study"}'  
 
 ### Request
