@@ -81,14 +81,14 @@ url -X POST -H "Content-Type: application/json" http://127.0.0.1:5000/auth/login
 
 #### 2. 404 NOT FOUND
 {  
-　　"message": "User Not Found"
+　　"message": "User Not Found"  
 }   
 
 - 회원가입이 안되어 있을 때 발생  
 
 #### 3. 500 INTERNAL SERVER ERROR
 {
-　　"message": "Auth Failed"
-}
+　　"message": "Auth Failed"  
+}  
 
 - 패스워드가 틀렸을 때 발생  
