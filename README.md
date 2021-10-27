@@ -99,8 +99,9 @@ curl -X POST -H "Content-Type: application/json" http://127.0.0.1:5000/auth/logi
 
 ### 구현 방법  
 - Client에서 POST 방식으로 데이터 패킷에 id와 data를 보내면 서버는 id, 데이터, 생성한 날짜를 database에 저장한다.  
+- 원래는 id를 flask 모듈에서 지원하는 session에 넣어서 인증할 생각이었다. POSTMAN으로 메시지를 주고 받을 때는 잘 되는데 curl 명령어를 사용했을 때는 session 인증이 안되는 상황이 발생했다. stackoverflow에 쳐보니 curl은 병렬적이며 이전에 상태를 기억하지 않고 보낸다고 써있어 쿠키를 사용하라고 써있었는데 하다가 잘 안되서 메모리 내의 유저 정보와 매칭시켜 인증하는 방식으로 구현했다.  
 
-### 실행 방법  
+## 실행 방법  
 - id와 data의 정보가 담긴 json data를 담아서 Endpoint에 보낸다.  
 <br/>  
 
