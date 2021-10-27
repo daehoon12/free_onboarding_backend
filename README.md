@@ -19,16 +19,26 @@ curl 명령어 예시 : curl -X POST -H "Content-Type: application/json" http://
 
 
 ### Request
+
+#### 1. Header  
+{    
+　　"Content-Type: application/json"  
+}    
+
+#### 2. Body  
 {  
 　　"id" : "Daehoon",  
 　　"password : "pass"  
 }  
 
 ### Response
+
+#### 1. 200 OK
 {  
 　　"Authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiRGFlaG9vbiJ9.kVfdmcIH0xlLRUvL2DF5Q93DTfMjNqwbg4x7ppd-Mvc"  
-} (200)  
+}  
 
+#### 2. 500 INTERNAL SERVER ERROR
 {  
 　　"message": "Register Failed"  
 } (500)  
