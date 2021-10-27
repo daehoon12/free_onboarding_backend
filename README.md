@@ -57,7 +57,7 @@ curl 명령어 예시 : curl -X POST -H "Content-Type: application/json" http://
 <br/>  
 
 Endpoint : [POST] http://127.0.0.1:5000/auth/login  
-url -X POST -H "Content-Type: application/json" http://127.0.0.1:5000/auth/login -d '{ "name" : "Daehoon","password" : "pass"}'
+curl -X POST -H "Content-Type: application/json" http://127.0.0.1:5000/auth/login -d '{ "name" : "Daehoon","password" : "pass"}'
 
 ### Request
 
@@ -93,3 +93,52 @@ url -X POST -H "Content-Type: application/json" http://127.0.0.1:5000/auth/login
 }  
 
 - 패스워드가 틀렸을 때 발생  
+
+
+## 3. CREATE
+
+### 구현 방법  
+- Client에서 POST 방식으로 데이터 패킷에 id와 data를 보내면 서버는 id, 데이터, 생성한 날짜를 database에 저장한다.  
+
+### 실행 방법  
+- id와 data의 정보가 담긴 json data를 담아서 Endpoint에 보낸다.  
+<br/>  
+
+Endpoint : [POST] http://127.0.0.1:5000/posts/  
+curl -X POST -H "content-type: application/json" http://127.0.0.1:5000/posts -d '{"id" : "Daehoon", "data": "study"}'  
+
+### Request
+
+#### 1. Header  
+{    
+　　"Content-Type: application/json"  
+}    
+
+#### 2. Body  
+{  
+　　"id" : "Daehoon",  
+　　"password : "pass"  
+}  
+
+### Response
+
+#### 1. 200 OK
+{  
+　　"Authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiRGFlaG9vbiJ9.kVfdmcIH0xlLRUvL2DF5Q93DTfMjNqwbg4x7ppd-Mvc"  
+}  
+
+#### 2. 404 NOT FOUND
+{  
+　　"message": "User Not Found"  
+}   
+
+- 회원가입이 안되어 있을 때 발생  
+
+#### 3. 500 INTERNAL SERVER ERROR
+
+{  
+　　"message": "Auth Failed"  
+}  
+
+- 패스워드가 틀렸을 때 발생  
+
