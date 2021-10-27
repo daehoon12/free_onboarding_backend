@@ -1,4 +1,4 @@
-파일 계층 구조
+# 파일 계층 구조
 ./backend
 ./idea
 ./migrations : DB 생성을 위한 초기화 폴더
