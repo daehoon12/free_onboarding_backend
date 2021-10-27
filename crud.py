@@ -3,8 +3,9 @@ from flask_restx import Resource, Api, Namespace
 from datetime import time, datetime
 
 count = 1
-Todo = Namespace('Post')
-
+Todo = Namespace(
+    name ='Post',
+    description="CRUD를 구현한 API",)
 
 def get_curr_time():
     now = datetime.now()
