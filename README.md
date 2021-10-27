@@ -12,7 +12,7 @@
 ## 1. 회원 가입
 
 ### 구현 방법  
-- Client에서 **POST** 방식으로 데이터 패킷에 id와 password를 보내면 password는 jwt 모듈을 이용해서 암호화하고 **회원을 관리하는 딕셔너리에 암호화한 패스워드를 value**로 두었다.
+- Client에서 **POST** 방식으로 데이터 패킷에 id와 password를 보내면 password는 jwt 모듈을 이용해서 암호화하고 **회원을 관리하는 딕셔너리에 암호화한 패스워드를 value**로 두었다. 그리고 서버는 Authorization가 담긴 Response 메세지를 클라이언트에 보낸다.  
 
 ### 실행 방법  
 
