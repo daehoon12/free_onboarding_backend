@@ -1,6 +1,11 @@
-# 파일 계층 구조
-- CrawledInfo.py : 티커네임 크롤링 데이터를 전처리하여 딕셔너리로 반환  
- - WebCrawler.py : 티커네임 크롤러  
+# Code 구조  
+
+- app.py : 서버와 데이터베이스 테이블을 생성.    
+- auth.py : 회원가입, 로그인 등 사용자 인증을 위한 API를 구현.  
+- crud.py : 게시판의 CRUD API를 구현 
+- database.py : In-Memory Database 생성  
+- test.py : 프로그램의 UnitTest  
+
 
 # 유저 인증 기능
 
